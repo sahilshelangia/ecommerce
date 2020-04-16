@@ -18,6 +18,8 @@ from django.urls import path
 from .views import home_page,about_page,contact_page,login_page,register_page
 from django.conf import settings
 from django.conf.urls.static import static
+
+from products.views import ProductListView,product_list_view,ProductDetailView,product_detail_view
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',home_page,name='home_page'),
@@ -25,6 +27,11 @@ urlpatterns = [
     path('contact/',contact_page,name='contact_page'),
     path('login_page/',login_page,name='login_page'),
     path('register_page/',register_page,name='register_page'),
+
+    path('products/',ProductListView.as_view(),name='ProductListView'),
+    path('products-fbv/',product_list_view,name='product_list_view'),
+    path('products/<pk>',ProductDetailView.as_view(),name='ProductDetailView'),
+    path('products-fbv/<pk>',product_detail_view,name='product_detail_view'),
 ]
 
 if settings.DEBUG:
