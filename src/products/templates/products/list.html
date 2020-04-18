@@ -7,7 +7,7 @@
 	<h1>List view</h1>
 	<ol>
 		{%for obj in object_list%}
-			<li>{{obj.title}}</li>
+			<li>{{obj.title}} {{obj.get_absolute_url}}</li>
 		{%endfor%}
 	</ol>
 </body>
