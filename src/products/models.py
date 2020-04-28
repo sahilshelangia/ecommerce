@@ -3,6 +3,7 @@ import random
 import os
 from .utils import unique_slug_generator
 from django.db.models.signals import pre_save,post_save
+from django.urls import reverse
 
 def get_filename_ext(filepath):
 	base_name =os.path.basename(filepath)
@@ -22,6 +23,8 @@ def upload_image_path(instance,filename):
 class ProductManager(models.Manager):
 	def featured(self):
 		return self.get_queryset().filter(featured=True)
+
+
 	def get_by_id(self,id):
 		qs=self.get_queryset().filter(id=id)
 		if qs.count()==1:
@@ -40,7 +43,8 @@ class Product(models.Model):
 	objects       =ProductManager()  #custom manager
 
 	def get_absolute_url(self):
-		return "/products/{slug}/".format(slug=self.slug)
+		# return "/products/{slug}/".format(slug=self.slug)
+		return reverse('product:detail',kwargs={'slug':self.slug})
 		
 	def __str__(self):
 		return self.title

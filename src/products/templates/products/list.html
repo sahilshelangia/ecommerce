@@ -1,14 +1,18 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title></title>
-</head>
-<body>
+{%extends 'base.html'%}
+{%block content%}
+<div class="container">
 	<h1>List view</h1>
-	<ol>
+	<div class="row">
 		{%for obj in object_list%}
-			<li>{{obj.title}} {{obj.get_absolute_url}}</li>
+			<div class="col">
+				{%include 'products/snippet/card.html' with instance=obj%}
+				{% if forloop.counter|divisibleby:2 %}
+				<br>
+				</div></div> <div class="row">
+				{%else%}
+				</div>
+				{%endif%}
 		{%endfor%}
-	</ol>
-</body>
-</html>
+	</div>					
+</div>
+{%endblock%}

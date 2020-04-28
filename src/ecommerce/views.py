@@ -6,7 +6,6 @@ from django.contrib.auth.models import User
 def home_page(request):
 	context={
 		'title':"sahil yadav",
-		
 	}
 	if request.user.is_authenticated:
 		context['premium_content']="this is only for logged in users."

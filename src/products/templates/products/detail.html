@@ -1,14 +1,9 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title></title>
-</head>
-<body>
+{%extends 'base.html'%}
+{%block content%}
 	{{object.title}}<br/>
 	{{object.description}}<br/>
 	{{object.price}}<br/>
 	{%if object.image%}
 		<img src="{{object.image.url}}">
 	{%endif%}
-</body>
-</html>
+{%endblock%}
