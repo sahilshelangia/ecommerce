@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,re_path,include
-from .views import home_page,about_page,contact_page,login_page,register_page
+from .views import home_page,about_page,contact_page,login_page,register_page,bootstrap
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -23,6 +23,7 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',home_page,name='home'),
+    path('bootstrap/',bootstrap,name='bootstrap'),
     path('about/',about_page,name='about'),
     path('contact/',contact_page,name='contact'),
     path('login_page/',login_page,name='login'),

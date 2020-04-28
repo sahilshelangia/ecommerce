@@ -61,3 +61,7 @@ def register_page(request):
 		user = User.objects.create_user(username,email,password)
 		user.save()
 	return render(request,'auth/register.html',context=context)
+
+
+def bootstrap(request):
+	return render(request,'bootstrap/example.html')
