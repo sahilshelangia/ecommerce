@@ -29,6 +29,7 @@ urlpatterns = [
     path('login_page/',login_page,name='login'),
     path('register_page/',register_page,name='register'),
     path('products/',include('products.urls',namespace='product')),
+    path('search/',include('search.urls',namespace='search')),
 ]
 
 if settings.DEBUG:
