@@ -1,6 +1,7 @@
 {%url 'home' as home_url%}
 {%url 'contact' as contact_url%}
 {%url 'product:list' as product_url%}
+{%url 'carts:home' as cart_url%}
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <a class="navbar-brand" href="#">{%if brand%}{{brand}}{%else%} CFE {%endif%}</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -31,6 +32,9 @@
       </li>
       {%endif%}
       
+      <li class="nav-item {%if request.path == cart_url%} active {%endif%}">
+        <a class="nav-link" href="{%url 'carts:home' %}">{{request.session.cart_item}} <i class="fas fa-shopping-cart"></i></a>
+      </li>
 
      <!--  <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

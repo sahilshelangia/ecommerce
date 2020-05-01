@@ -30,6 +30,7 @@ urlpatterns = [
     path('register_page/',register_page,name='register'),
     path('products/',include('products.urls',namespace='product')),
     path('search/',include('search.urls',namespace='search')),
+    path('carts/',include('carts.urls',namespace='carts')),
 ]
 
 if settings.DEBUG:

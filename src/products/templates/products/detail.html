@@ -1,9 +1,17 @@
 {%extends 'base.html'%}
 {%block content%}
-	{{object.title}}<br/>
-	{{object.description}}<br/>
-	{{object.price}}<br/>
-	{%if object.image%}
-		<img src="{{object.image.url}}">
-	{%endif%}
+	<div class="row">
+		<div class="col-12 col-md-6">
+			{{object.title}}<br/>
+			{{object.description}}<br/>
+			{{object.price}}<br/>
+			{%if object.image%}
+				<img src="{{object.image.url}}">
+			{%endif%}
+		</div>
+		<div class="col-12 col-md-6">
+			{%include 'products/snippet/update-cart.html' with product=object cart=cart%}
+		</div>
+	</div>
+	
 {%endblock%}
