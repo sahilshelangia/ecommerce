@@ -25,8 +25,14 @@
       <th>Total</th>
       <th>{{cart.total}}</th>
     </tr>
+    <tr>
+      <th scope="row">#</th>
+      <th>Checkout</th>
+      <th> <a class="btn btn-success"href="{%url 'carts:checkout'%}">checkout</a></th>
+    </tr>
   </tbody>
 </table>
+
 {%else%}
 	<p class="lead">Cart is empty</p>
 {%endif%}

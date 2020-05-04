@@ -15,9 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,re_path,include
-from .views import home_page,about_page,contact_page,login_page,register_page,bootstrap
+from .views import home_page,about_page,contact_page,bootstrap
+from accounts.views import login_page,register_page,guest_register_view
 from django.conf import settings
 from django.conf.urls.static import static
+from django.contrib.auth.views import LogoutView
+from addresses.views import checkout_address_create_view,checkout_address_reuse_view
 
 
 urlpatterns = [
@@ -26,11 +29,15 @@ urlpatterns = [
     path('bootstrap/',bootstrap,name='bootstrap'),
     path('about/',about_page,name='about'),
     path('contact/',contact_page,name='contact'),
-    path('login_page/',login_page,name='login'),
-    path('register_page/',register_page,name='register'),
+    path('login/',login_page,name='login'),
+    path('logout/',LogoutView.as_view(),name='logout'),
+    path('register/guest/',guest_register_view,name='guest_register'),
+    path('register/',register_page,name='register'),
     path('products/',include('products.urls',namespace='product')),
     path('search/',include('search.urls',namespace='search')),
     path('carts/',include('carts.urls',namespace='carts')),
+    path('checkout/address/create/',checkout_address_create_view,name='checkout_address_create'),
+    path('checkout/address/reuse/',checkout_address_reuse_view,name='checkout_address_reuse')
 ]
 
 if settings.DEBUG:

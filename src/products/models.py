@@ -1,9 +1,10 @@
 from django.db import models
 import random
 import os
-from .utils import unique_slug_generator
+from ecommerce.utils import unique_slug_generator
 from django.db.models.signals import pre_save,post_save
 from django.urls import reverse
+
 
 def get_filename_ext(filepath):
 	base_name =os.path.basename(filepath)
