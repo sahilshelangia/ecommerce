@@ -2,6 +2,10 @@ from django.http import HttpResponse
 from django.shortcuts import render,redirect
 from .forms import ContactForm
 from django.contrib.auth.models import User
+
+def jquery(request):
+	return render(request,'jquery.html',{})
+	
 def home_page(request):
 	context={
 		'title':"sahil yadav",
