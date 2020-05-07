@@ -2,6 +2,7 @@ from django.http import HttpResponse
 from django.shortcuts import render,redirect
 from .forms import ContactForm
 from django.contrib.auth.models import User
+from django.http import JsonResponse
 
 def jquery(request):
 	return render(request,'jquery.html',{})
@@ -25,6 +26,13 @@ def contact_page(request):
 	}
 	if contact_form.is_valid():
 		print(contact_form.cleaned_data)
+		if request.is_ajax():
+			return JsonResponse({"message":"Thankyou"})
+
+	if contact_form.errors:
+		errors=contact_form.errors.as_json()
+		if request.is_ajax():
+			return HttpResponse(errors,status=400,content_type='application/json')
 	# if request.method=='POST':
 	# 	print(request.POST)
 	# 	print(request.POST.get('fullname'))
