@@ -5,6 +5,8 @@ from django.contrib.auth import authenticate,login
 from django.contrib.auth.models import User
 from django.utils.http import is_safe_url
 from .models import GuestEmail
+from .signals import user_logged_in
+
 # Create your views here.
 def login_page(request):
 	form=LoginForm(request.POST or None)
@@ -20,6 +22,7 @@ def login_page(request):
 		user = authenticate(username=username, password=password)
 		if user is not None:
 			login(request,user)
+			user_logged_in.send(user.__class__,instance=user,request=request)
 			try:
 				del request.session['guest_email_id']
 			except:
