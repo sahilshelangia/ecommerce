@@ -22,7 +22,7 @@ from django.conf.urls.static import static
 from django.contrib.auth.views import LogoutView
 from addresses.views import checkout_address_create_view,checkout_address_reuse_view
 from carts.views import cart_detail_api_view
-
+from billing.views import payment_method_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -36,6 +36,7 @@ urlpatterns = [
     path('api/cart/',cart_detail_api_view,name='api-cart'),
     path('register/guest/',guest_register_view,name='guest_register'),
     path('register/',register_page,name='register'),
+    path('billing/payment-method/',payment_method_view,name='billing-payment-method'),
     path('products/',include('products.urls',namespace='product')),
     path('search/',include('search.urls',namespace='search')),
     path('carts/',include('carts.urls',namespace='carts')),
