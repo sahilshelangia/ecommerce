@@ -23,9 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__fil
 SECRET_KEY = '2eudotwvn%mquu)xb7gk7nuqlhir2-(xy(9gfe%!i-j_rn)$@w'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1','local','.heroku.com']
+ALLOWED_HOSTS = ['127.0.0.1','local','sahil-ecommerce.herokuapp.com']
 
 
 # Application definition
@@ -38,6 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    # third party
+    'storages',
+    
     # our app
     'products',
     'search',
@@ -150,7 +153,7 @@ MEDIA_ROOT=os.path.join(os.path.dirname(BASE_DIR),"static_cdn","media_root")
 
 LOGOUT_REDIRECT_URL='/login'
 
-
+from ecommerce.aws.conf import *
 
 CORS_REPLACE_HTTPS_REFERER      = True
 HOST_SCHEME                     = "https://"
@@ -161,3 +164,16 @@ CSRF_COOKIE_SECURE              = True
 SECURE_HSTS_INCLUDE_SUBDOMAINS  = True
 SECURE_HSTS_SECONDS             = 1000000
 SECURE_FRAME_DENY               = True
+
+
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'surjeetsingh41097@gmail.com' 
+EMAIL_HOST_PASSWORD = 'password@007'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL='Python ecommerce <sahilshelangia@gmail.com>'
+MANAGERS=[
+    ("sahil","sahilshelangia@gmail.com"),
+    ("sahil","ipg_2016089@iiitm.ac.in"),
+]
+ADMINS=MANAGERS

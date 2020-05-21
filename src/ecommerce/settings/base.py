@@ -38,6 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    # third party
+    'storages',
+    
     # our app
     'products',
     'search',
@@ -155,3 +158,20 @@ CSRF_COOKIE_SECURE              = False
 SECURE_HSTS_SECONDS             = None
 SECURE_HSTS_INCLUDE_SUBDOMAINS  = False
 SECURE_FRAME_DENY               = False
+
+AWS_GROUP_NAME="sahilshelangia"
+AWS_USERNAME="sahilshelangia"
+AWS_ACCESS_KEY_ID="AKIAZD7H6VG3Y7ZDFLES"
+AWS_SECRET_ACCESS_KEY="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"
+
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'surjeetsingh41097@gmail.com' 
+EMAIL_HOST_PASSWORD = 'password@007'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL='Python ecommerce <sahilshelangia@gmail.com>'
+MANAGERS=[
+    ("sahilshelangia@gmail.com","sahil"),
+    ("ipg_2016089@iiitm.ac.in","sahil"),
+]
+ADMINS=MANAGERS
