@@ -54,9 +54,9 @@ INSTALLED_APPS = [
 ]
 
 
-MAILCHIMP_API_KEY='bd2e172c01075126a20b0efe3514c40d-us18'
+MAILCHIMP_API_KEY='**'
 MAILCHIMP_DATA_CENTER='us18'
-MAILCHIMP_EMAIL_LIST_ID='8f1d94155a'
+MAILCHIMP_EMAIL_LIST_ID='**'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -168,7 +168,7 @@ SECURE_FRAME_DENY               = True
 
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'surjeetsingh41097@gmail.com' 
-EMAIL_HOST_PASSWORD = 'password@007'
+EMAIL_HOST_PASSWORD = '**'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 DEFAULT_FROM_EMAIL='Python ecommerce <sahilshelangia@gmail.com>'
